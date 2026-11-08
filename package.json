@@ -2,7 +2,7 @@
   "name": "py2js-converter",
   "version": "1.0.0",
   "description": "A Python subset to JavaScript transpiler built on the Lezer Python grammar",
-  "author": "Your Name",
+  "author": "Amrit Anand",
   "license": "MIT",
   "type": "module",
   "main": "./dist/index.cjs",
@@ -14,7 +14,7 @@
     }
   },
   "bin": {
-    "py2js-converter": "./bin/py2js.js"
+    "py2js-converter": "bin/py2js.js"
   },
   "files": [
     "src",

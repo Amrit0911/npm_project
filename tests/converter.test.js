@@ -154,6 +154,12 @@ describe('convert', () => {
     expect(result.stdout).toBe('console.log(5);\n');
   });
 
+  it('keeps the CLI binary mapping valid in package metadata', async () => {
+    const manifest = JSON.parse(await readFile(new URL('../package.json', import.meta.url), 'utf8'));
+    expect(manifest.bin['py2js-converter']).toBe('bin/py2js.js');
+    expect((await readFile(new URL('../bin/py2js.js', import.meta.url), 'utf8')).startsWith('#!/usr/bin/env node')).toBe(true);
+  });
+
   it('CLI writes the default and custom output paths and reports help/version', async () => {
     const dir = await mkdtemp(join(tmpdir(), 'py2js-'));
     try {
