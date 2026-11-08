@@ -1,0 +1,52 @@
+{
+  "name": "py2js-converter",
+  "version": "1.0.0",
+  "description": "A Python subset to JavaScript transpiler built on the Lezer Python grammar",
+  "author": "Your Name",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./index.js",
+  "exports": {
+    ".": {
+      "import": "./index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "bin": {
+    "py2js-converter": "./bin/py2js.js"
+  },
+  "files": [
+    "src",
+    "bin",
+    "index.js",
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "esbuild index.js --bundle --platform=node --format=cjs --outfile=dist/index.cjs",
+    "prepack": "npm run build",
+    "pretest": "npm run build",
+    "test": "vitest run",
+    "lint": "eslint ."
+  },
+  "keywords": [
+    "python",
+    "javascript",
+    "transpiler",
+    "compiler",
+    "converter"
+  ],
+  "dependencies": {
+    "@lezer/python": "^1.1.18"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2",
+    "eslint": "^9.39.1",
+    "vitest": "^4.0.8"
+  }
+}
